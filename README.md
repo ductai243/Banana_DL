@@ -1,58 +1,95 @@
-# Kết quả nghiên cứu: Phân tích và cải tiến kiến trúc mô hình YOLOv8
+# A Lightweight and Optimized Deep Learning Model for Detecting Banana Clusters and Stems in Autonomous Harvesting Vehicles
 
-Dưới đây là các phần chính trong nghiên cứu về cải tiến YOLOv8 với các module mới, bao gồm Banana_DL architecture, GSConv, C-FECA, BiFPN, và Evaluation.
+Developing algorithms to identify fruit cutting locations is important for the functionality of harvesting robots. However, existing studies frequently utilize multi-stage detection processes, which complicate system design and hinder real-time operation. To overcome those challenges, this study proposes an optimized **Banana-DL** model capable of simultaneously detecting banana clusters and stems in orchard environments for banana harvesting robots. 
 
----
+The proposed model is based on the YOLOv8n baseline and incorporates enhancements to improve accuracy while maintaining a lightweight architecture:
+- Replacing standard convolution layers with a lightweight **GSConv** structure.
+- Introducing a novel **C2f-Fast Efficient Channel Attention (C-FECA)** module for improved feature extraction.
+- Incorporating a **BiFPN** module to enhance feature aggregation and adaptability to varying environmental conditions.
 
-## 1. Banana_DL Architecture
+Experimental results demonstrate that the Banana-DL model achieves superior performance:
+- **Precision:** 96.3%
+- **Recall:** 90%
+- **mAP50:** 94.5%
+- Model size: **3.7MB** (40.3% reduction)
+- Parameters: **1.7M** (43.3% reduction)
 
-![Banana_DL Architecture](results/overall_system.png)
-*Hình 1: Sơ đồ kiến trúc Banana_DL.*
-
-**Miêu tả:** 
-Banana_DL Architecture là kiến trúc nền tảng được thiết kế để cải thiện hiệu suất phát hiện đối tượng trong nông nghiệp. Nó kết hợp các module chuyên dụng nhằm tối ưu hóa việc xử lý hình ảnh.
-
----
-
-## 2. GSConv
-
-![GSConv](results/GSConv_Block.png)
-*Hình 2: Cấu trúc GSConv trong kiến trúc mô hình.*
-
-**Miêu tả:** 
-GSConv thay thế các lớp Conv thông thường bằng cách sử dụng kiến trúc nhóm-kênh (group-channel), giúp giảm số lượng tham số và tăng tốc độ xử lý.
+These advancements make Banana-DL highly suitable for deployment on embedded systems in agricultural robots.
 
 ---
 
-## 3. C-FECA
+## 1. Architecture of the Proposed Detection Model
 
-![C-FECA](results/C-FECA.png)
-*Hình 3: Module C-FECA với kênh chú ý nhanh và hiệu quả.*
+![Banana_DL Architecture](results/overall_system.png)  
+*Figure 1: Architecture of the proposed detection model.*
 
-**Miêu tả:** 
-C-FECA (C2f-Faster-Efficient Channel Attention) được sử dụng để nâng cao khả năng tập trung vào các vùng quan trọng trong hình ảnh, giúp cải thiện độ chính xác.
-
----
-
-## 4. BiFPN
-
-![BiFPN](results/BiFPN.png)
-*Hình 4: BiFPN trong kiến trúc YOLOv8 cải tiến.*
-
-**Miêu tả:** 
-BiFPN (Bidirectional Feature Pyramid Network) giúp tối ưu hóa việc tổng hợp các đặc trưng từ nhiều mức độ khác nhau, cải thiện khả năng phát hiện các đối tượng nhỏ.
+**Description:**  
+The architecture is based on the YOLOv8n baseline with key enhancements: lightweight GSConv structure replacing standard convolution, the proposed C-FECA module replacing the original C2f module, and BiFPN module incorporated in the neck to improve feature aggregation and adaptability to diverse environmental conditions.
 
 ---
 
-## 5. Evaluation
+## 2. Group-shuffle Convolution Module (GSConv)
 
-![Evaluation](results/gradcamme.png)
-*Hình 5: Biểu đồ kết quả đánh giá mô hình.*
+![GSConv](results/GSConv_Block.png)  
+*Figure 2: GSConv structure in the model architecture.*
 
-**Miêu tả:** 
-Biểu đồ thể hiện hiệu suất mô hình được cải tiến với các chỉ số như Precision, Recall, mAP50 và mAP50-95. Kết quả cho thấy sự vượt trội so với kiến trúc gốc.
+**Description:**  
+GSConv replaces standard convolution layers with a group-channel architecture, reducing parameters and increasing processing speed.
 
 ---
 
-**Kết luận:** 
-Các cải tiến trên đã giúp tăng đáng kể hiệu suất mô hình YOLOv8 trong việc phát hiện và phân loại các đối tượng trong bối cảnh nông nghiệp.
+## 3. C2f - Fast Efficient Channel Attention Module (C-FECA)
+
+![C-FECA](results/C-FECA.png)  
+*Figure 3: C-FECA module for faster and more efficient channel attention.*
+
+**Description:**  
+C-FECA enhances the model's ability to focus on important regions in images, thereby improving accuracy.
+
+---
+
+## 4. Bi-directional Feature Pyramid Network (BiFPN)
+
+![BiFPN](results/BiFPN.png)  
+*Figure 4: BiFPN in the improved YOLOv8 architecture.*
+
+**Description:**  
+BiFPN optimizes the aggregation of features across multiple scales, improving the detection of small objects.
+
+---
+
+## 5. Ablation Experiments
+
+![Ablation experiments](results/ablation_experiment.png)  
+*Figure 5: Detection results of different models in ablation experiments.*
+
+---
+
+## 6. Detection Performance Between Different Models
+
+![Performance](results/different_model.png)  
+*Figure 6: Training curves of different models.*
+
+---
+
+## 7. Grad-CAM Visualization of the Proposed Model
+
+![Grad_CAM](results/grad_cluster_stem.png)  
+*Figure 7: Grad-CAM visualization of the proposed model.*
+
+---
+
+## 8. Comparison of Detection Models
+
+![Performance Table](results/performance_table.png)  
+*Table 1: Comparison of detection models based on precision, recall, mAP50, and processing time.*
+
+---
+
+## Conclusion
+
+In this study, the Banana-DL model was successfully developed as an optimized solution for detecting banana clusters and stems in orchard environments. By integrating lightweight GSConv structures, the C-FECA module, and the BiFPN network, the model achieves:
+- Higher accuracy compared to baseline and state-of-the-art models.
+- Significant reductions in model size and computational complexity.
+
+These results validate the feasibility of deploying Banana-DL on embedded systems for agricultural robots, offering an efficient approach to real-time harvesting operations.

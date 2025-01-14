@@ -86,3 +86,9 @@ In this study, the Banana-DL model was successfully developed as an optimized so
 - Significant reductions in model size and computational complexity.
 
 These results validate the feasibility of deploying Banana-DL on embedded systems for agricultural robots, offering an efficient approach to real-time harvesting operations.
+
+---
+## Acknowledgments
+
+The authors express gratitude for the support and resources provided by the Biomimicking and Engineering Lab (Being2 Lab) at National Sun Yat-sen University, Kaohsiung, Taiwan.
+

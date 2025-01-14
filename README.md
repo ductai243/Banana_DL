@@ -20,7 +20,7 @@ These advancements make Banana-DL highly suitable for deployment on embedded sys
 
 ## 1. Architecture of the Proposed Detection Model
 
-![Banana_DL Architecture](results/overall_system.png)  
+![Banana_DL Architecture](cfg/overall_system.png)  
 *Figure 1: Architecture of the proposed detection model.*
 
 **Description:**  
@@ -30,7 +30,7 @@ The architecture is based on the YOLOv8n baseline with key enhancements: lightwe
 
 ## 2. Group-shuffle Convolution Module (GSConv)
 
-![GSConv](results/GSConv_Block.png)  
+![GSConv](cfg/GSConv_Block.png)  
 *Figure 2: GSConv structure in the model architecture.*
 
 **Description:**  
@@ -40,7 +40,7 @@ GSConv replaces standard convolution layers with a group-channel architecture, r
 
 ## 3. C2f - Fast Efficient Channel Attention Module (C-FECA)
 
-![C-FECA](results/C-FECA.png)  
+![C-FECA](cfg/C-FECA.png)  
 *Figure 3: C-FECA module for faster and more efficient channel attention.*
 
 **Description:**  
@@ -50,7 +50,7 @@ C-FECA enhances the model's ability to focus on important regions in images, the
 
 ## 4. Bi-directional Feature Pyramid Network (BiFPN)
 
-![BiFPN](results/BiFPN.png)  
+![BiFPN](cfg/BiFPN.png)  
 *Figure 4: BiFPN in the improved YOLOv8 architecture.*
 
 **Description:**  
@@ -60,28 +60,28 @@ BiFPN optimizes the aggregation of features across multiple scales, improving th
 
 ## 5. Ablation Experiments
 
-![Ablation experiments](results/ablation_experiment.png)  
+![Ablation experiments](cfg/ablation_experiment.png)  
 *Figure 5: Detection results of different models in ablation experiments.*
 
 ---
 
 ## 6. Detection Performance Between Different Models
 
-![Performance](results/different_model.png)  
+![Performance](cfg/different_model.png)  
 *Figure 6: Training curves of different models.*
 
 ---
 
 ## 7. Grad-CAM Visualization of the Proposed Model
 
-![Grad_CAM](results/grad_cluster_stem.png)  
+![Grad_CAM](cfg/grad_cluster_stem.png)  
 *Figure 7: Grad-CAM visualization of the proposed model.*
 
 ---
 
 ## 8. Comparison of Detection Models
 
-![Performance Table](results/performance_table.png)  
+![Performance Table](cfg/performance_table.png)  
 *Table 1: Comparison of detection models based on precision, recall, mAP50, and processing time.*
 
 ---

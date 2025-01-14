@@ -79,13 +79,6 @@ BiFPN optimizes the aggregation of features across multiple scales, improving th
 
 ---
 
-## 8. Comparison of Detection Models
-
-![Performance Table](cfg/performance_table.png)  
-*Table 1: Comparison of detection models based on precision, recall, mAP50, and processing time.*
-
----
-
 ## Conclusion
 
 In this study, the Banana-DL model was successfully developed as an optimized solution for detecting banana clusters and stems in orchard environments. By integrating lightweight GSConv structures, the C-FECA module, and the BiFPN network, the model achieves:
